@@ -5,6 +5,7 @@ services:
   DEV_APP_TEST_PLEASE_REPLACE_ME__SERVICE_DB:
     container_name: DEV_APP_TEST_PLEASE_REPLACE_ME__SERVICE_DB_MYSQL
     image: mysql:8.0.26
+    platform: linux/x86_64
     env_file:
       - ../.env
     ports:
@@ -19,6 +20,7 @@ services:
   adminer:
     container_name: DEV_APP_TEST_PLEASE_REPLACE_ME__SERVICE_DB_ADMINER
     image: adminer
+    platform: linux/x86_64
     depends_on:
       - DEV_APP_TEST_PLEASE_REPLACE_ME__SERVICE_DB
     env_file:
@@ -27,6 +29,7 @@ services:
       - ${DB_ADMINER_PORT}:8080
   phpmyadmin:
     image: phpmyadmin
+    platform: linux/x86_64
     depends_on:
       - DEV_APP_TEST_PLEASE_REPLACE_ME__SERVICE_DB
     env_file:
